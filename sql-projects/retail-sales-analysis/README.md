@@ -2,7 +2,7 @@
 
 ## About the Data
 
-This retail sales analysis is conducted using SQL Server dialect (T-SQL).
+This retail sales analysis is conducted using SQL Server dialect (T-SQL). The data for this project were artifically generated using ChatGPT.
 
 ## SQL Server Docker Container Setup
 
