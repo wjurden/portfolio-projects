@@ -1,3 +1,7 @@
+-- ##############################
+-- CREATE TABLE
+-- ##############################
+
 -- CHANGE DATABSE TO portfolio-projects
 USE [portfolio-projects];
 
@@ -13,7 +17,6 @@ CREATE TABLE [dbo].[RETAIL_SALES_ANALYSIS] (
     [UNIT_PRICE]        FLOAT        NULL,
     [TOTAL_SALES]       FLOAT        NULL,
     [PROFIT]            FLOAT        NULL,
-    [CUSTOMER_SEGMENT]  VARCHAR(50)  NULL,
     CONSTRAINT [PK_RETAIL_SALES_ANALYSIS] PRIMARY KEY CLUSTERED ([ORDER_ID] ASC)
 );
 
