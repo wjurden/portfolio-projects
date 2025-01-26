@@ -17,7 +17,9 @@
 
 
 ## Project Description
+The aim of this project is to simulate a profit, sales, and customer analysis that is likely to occur within a wholesale business. The project aims to showcase key SQL operations - starting with the foundational operations of `SELECT`, `FROM`, `WHERE`, `GROUP BY`, `HAVING`, and `ORDER BY`. From this point, there will be further uses of more advanced techniques such as `CTEs`, `WINDOW FUNCTIONS`, and `REGEX`. 
 
+The project will provide actionable insights, operational suggesions, and leadership level recommendations that could be implemented to improve the business. 
 
 ## About the Data
 
@@ -59,16 +61,34 @@ This project contains several SQL query files, each serving a specific function 
 
 ### Files:
 1. `create_table.sql`  
-   - **Purpose**: Create the RETAIL_SALES_ANALYSIS table and upload the data into it.
+   - **Purpose**: Create the RETAIL_SALES_ANALYSIS &  CUSTOMER tables and upload the data into them.
    - **Key Operations**: 
-     - Create tables order data.
+     - Create order data & customers table. 
      - Insert data into tables.
 
 2. `exploratory_analysis.sql`
-   - **Purpose**: Initial exploratory analysis to understand the underlying data.
+   - **Purpose**: Initial exploratory analysis to understand the underlying sales data.
    - **Key Operations**: 
      - Understand summary statistics of the data.
      - Analyze basic customer, category, and region metrics.
+
+3. `profitability_analysis.sql`
+   - **Purpose**: Deep dive analysis focusing on understanding 5 key questions about profitability.
+   - **Key Operations**: 
+     - Uncover profitability nuances by analyzing multiple cuts of the data (region, time, etc). 
+     - Utilize foundational & advanced SQL queries to unlock applicable profitability insights.
+
+4. `sales_analysis.sql`
+   - **Purpose**: Deep dive analysis focusing on understanding 5 key questions about sales.
+   - **Key Operations**: 
+     - Joining in the CUSTOMERS table to discover sales insights. 
+     - Find actionable unlocks for the business via sales analysis.
+
+5. `customer_analysis.sql`
+   - **Purpose**: Deep dive analysis focusing on understanding 5 key questions about customers.
+   - **Key Operations**: 
+     - Exploratory analysis on customers. 
+     - Deep dive into key business questions surrounding our consumer base demographics.
 
 ---
 
