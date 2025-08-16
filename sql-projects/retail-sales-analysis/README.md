@@ -2,28 +2,38 @@
 
 ## Table of Contents
 
-1. [Executive Summary](#executive-summary)
-2. [Key Findings](#key-findings)
-3. [Project Description](#project-description)
+1. [Project Description](#project-description)
+2. [Executive Summary](#executive-summary)
+3. [Key Findings](#key-findings)
 4. [About the Data](#about-the-data)
 5. [SQL Server Docker Container Setup](#sql-server-docker-container-setup)
 6. [SQL Query Files](#sql-query-files)
 
 
-## Executive Summary
+## Project Description
+The aim of this project is to simulate a retail sales analysis that is likely to occur within a wholesale business. One should gain a basic understanding of key customers, categories, and regions within the business. This report could be used for a new general manager (GM) onboarding to the company. The project aims to showcase key SQL operations - starting with the foundational operations of `SELECT`, `FROM`, `WHERE`, `GROUP BY`, `HAVING`, and `ORDER BY`. From this point, there will be further uses of more advanced techniques such as `SUB-QUERIES`, `CTEs`, and `WINDOW FUNCTIONS`. 
 
+The project will provide actionable insights, operational suggesions, and leadership level recommendations that could be implemented to improve the business as the new GM onboards. 
+
+## Executive Summary
+The purpose of this report was to uncover basic statistics and opportunities of focus as a new GM onboards to the company. It was found that in the last 7 months, the company is operating at a relatively healthy profit margin and the furniture category leading the way in total profit. However, the electronics category is falling behind in total profit with >4x less than furniture. This is driven slightly by the West Region, under-pacing all other regions.
+
+When diving deeper into a profitability analysis across the company, it was found that on a per unit basis, products falling within the $80-$99.99 price point generate the highest amount of profit contribution. Profit margin was steady at 20% across all price brackets. Daily profit margin has ranged from 17-24%. 
+
+It is recommended that the new GM puts his/her focus on increasing the profit of the electronics category by implementing sales tactics such as promotions, informational sessions with customers, or improving the catelog of products. The GM should continue what is working for the furniture category and focus should be spent on hiring or training sales talent in the West region to boost sales.
 
 ## Key Findings
 
+* **Top Customers:** One way to ensure you are building a profitable company is by nurturing the relationship of new clients. Customer CUST-478 has the highest profit of any customer spending over $1,500 in their last 3 orders. This customer averaged profit of `$330 per order` and a Customer Relationship Management plan should be implemented to foster an ongoing relationship with them.
 
-## Project Description
-The aim of this project is to simulate a profit, sales, and customer analysis that is likely to occur within a wholesale business. The project aims to showcase key SQL operations - starting with the foundational operations of `SELECT`, `FROM`, `WHERE`, `GROUP BY`, `HAVING`, and `ORDER BY`. From this point, there will be further uses of more advanced techniques such as `CTEs`, `WINDOW FUNCTIONS`, and `REGEX`. 
+* **Order Frequency:** How often a customer places an order varies by industry, company, and product offering. For this business, the average time between orders is `32 days`. Given this is a wholesale company, this is likely a sufficent time between orders. Larger corporations take longer to place orders as they often are buying in bulk. This metric should be tracked over time to see if there are any changes within key customers.
 
-The project will provide actionable insights, operational suggesions, and leadership level recommendations that could be implemented to improve the business. 
+* **Order Timing:** Understanding when orders are placed can be strategically used in aiding sales staff. By knowing when a customer is likely to place an order, an email or phone call can be sent to the customer to ask if they need any help, information, or assistance in placing their orders. It was found that the top 3 times were `8:00PM`, `1:00PM`, and  `8:00AM`. It appears that our customers are placing orders at the very beginning, middle, or end of their days. By knowing this, sales teams should strategically plan their communications around these times to ensure deals are closed.
+
 
 ## About the Data
 
-This retail sales analysis is conducted using SQL Server dialect (T-SQL). The data for this project were artifically generated using ChatGPT.
+This retail sales analysis is conducted using SQL Server dialect (T-SQL). The data for this project were artifically generated using artificial intelligence via ChatGPT. A prompt was engineered, iterated, and then a CSV file was downloaded. That CSV file was then uploaded to the database via the Docker Container.
 
 
 ## SQL Server Docker Container Setup
@@ -61,10 +71,10 @@ This project contains several SQL query files, each serving a specific function 
 
 ### Files:
 1. `create_table.sql`  
-   - **Purpose**: Create the RETAIL_SALES_ANALYSIS &  CUSTOMER tables and upload the data into them.
+   - **Purpose**: Create the RETAIL_SALES_ANALYSIS table and upload the data into it.
    - **Key Operations**: 
-     - Create order data & customers table. 
-     - Insert data into tables.
+     - Create order data table. 
+     - Insert data into table.
 
 2. `exploratory_analysis.sql`
    - **Purpose**: Initial exploratory analysis to understand the underlying sales data.
@@ -77,18 +87,6 @@ This project contains several SQL query files, each serving a specific function 
    - **Key Operations**: 
      - Uncover profitability nuances by analyzing multiple cuts of the data (region, time, etc). 
      - Utilize foundational & advanced SQL queries to unlock applicable profitability insights.
-
-4. `sales_analysis.sql`
-   - **Purpose**: Deep dive analysis focusing on understanding 5 key questions about sales.
-   - **Key Operations**: 
-     - Joining in the CUSTOMERS table to discover sales insights. 
-     - Find actionable unlocks for the business via sales analysis.
-
-5. `customer_analysis.sql`
-   - **Purpose**: Deep dive analysis focusing on understanding 5 key questions about customers.
-   - **Key Operations**: 
-     - Exploratory analysis on customers. 
-     - Deep dive into key business questions surrounding our consumer base demographics.
 
 ---
 
