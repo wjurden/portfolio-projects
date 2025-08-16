@@ -12,7 +12,7 @@ FROM RETAIL_SALES_ANALYSIS;
 -- #################################################################
 -- KEY QUESTIONS
 -- 1. Which customers had the most profitable last 3 orders, having sales per customer >$1500?
--- 2. What time of day do customers, with a customer ID containing the number 8, spend the most amount of money?
+-- 2. What time of day do customers from the East region, spend the most amount of money?
 -- 3. What price ranges are most profitable?
 -- 4. Is Clothing more profitable in one region vs. the average?
 -- 5. How has profitability trended overtime?
@@ -34,12 +34,12 @@ GROUP BY CUSTOMER_ID
 HAVING SUM(TOTAL_SALES) > 1500
 ORDER BY AVG_PROFIT DESC;
 
--- # QUESTION 2 - What time of day do customers, with a customer ID containing the number 8, spend the most amount of money?
+-- # QUESTION 2 - What time of day do customers from the East region, spend the most amount of money?
 WITH a AS (
     SELECT RIGHT(ORDER_DATE,7) AS DT
         ,ROUND(SUM(TOTAL_SALES),0) AS TTL_SALES
     FROM RETAIL_SALES_ANALYSIS
-    WHERE CUSTOMER_ID LIKE '%8%'
+    WHERE REGION = 'East'
     GROUP BY ORDER_DATE
 )
 
@@ -47,7 +47,7 @@ SELECT DT
     ,ROUND(SUM(TTL_SALES),0) AS TTL_SALES
 FROM a
 GROUP BY DT
-ORDER BY TTL_SALES DESC
+ORDER BY TTL_SALES DESC;
 
 -- # QUESTION 3 - What price ranges are most profitable?
 WITH a AS (
@@ -63,8 +63,8 @@ WITH a AS (
     FROM RETAIL_SALES_ANALYSIS
 )
 SELECT UNIT_PRICE_BUCKET
-    ,ROUND(AVG(PROFIT/QUANTITY),2) AS AVG_UNIT_PROFIT
-    ,ROUND(AVG(PROFIT/QUANTITY) / AVG(UNIT_PRICE),2) AS AVG_PROFIT_MARGIN
+    ,ROUND(SUM(PROFIT)/SUM(QUANTITY),2) AS AVG_UNIT_PROFIT
+    ,ROUND(SUM(PROFIT) / SUM(TOTAL_SALES),2) AS AVG_PROFIT_MARGIN
 FROM a
 GROUP BY UNIT_PRICE_BUCKET
 ORDER BY AVG_UNIT_PROFIT DESC;
@@ -73,7 +73,7 @@ ORDER BY AVG_UNIT_PROFIT DESC;
 SELECT COALESCE(REGION, 'ALL REGIONS') AS REGION
     ,ROUND(SUM(PROFIT),0) AS TTL_PROFIT
     ,ROUND(AVG(PROFIT),2) AS AVG_PROFIT
-    ,ROUND(AVG(PROFIT/QUANTITY) / AVG(UNIT_PRICE),2) AS AVG_PROFIT_MARGIN
+    ,ROUND(SUM(PROFIT) / SUM(TOTAL_SALES),2) AS AVG_PROFIT_MARGIN
 FROM RETAIL_SALES_ANALYSIS
 WHERE PRODUCT_CATEGORY = 'Clothing'
 GROUP BY ROLLUP(REGION)
@@ -83,7 +83,7 @@ ORDER BY TTL_PROFIT DESC;
 WITH a AS (
 SELECT CAST (ORDER_DATE AS date) AS DT
     ,SUM(PROFIT) AS TTL_PROFIT
-    ,AVG(PROFIT/QUANTITY) / AVG(UNIT_PRICE) AS AVG_PROFIT_MARGIN
+    ,ROUND(SUM(PROFIT) / SUM(TOTAL_SALES),2) AS AVG_PROFIT_MARGIN
 FROM RETAIL_SALES_ANALYSIS
 GROUP BY ORDER_DATE
 )
