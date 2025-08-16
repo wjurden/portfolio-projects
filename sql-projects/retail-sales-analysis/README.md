@@ -20,7 +20,7 @@ The purpose of this report was to uncover basic statistics and opportunities of 
 
 When diving deeper into a profitability analysis across the company, it was found that on a per unit basis, products falling within the $80-$99.99 price point generate the highest amount of profit contribution. Profit margin was steady at 20% across all price brackets. Daily profit margin has ranged from 17-24%. 
 
-It is recommended that the new GM puts his/her focus on increasing the profit of the electronics category by implementing sales tactics such as promotions, informational sessions with customers, or improving the catelog of products. The GM should continue what is working for the furniture category and focus should be spent on hiring or training sales talent in the West region to boost sales.
+It is recommended that the new GM puts his/her focus on increasing the profit of the electronics category by implementing sales tactics such as promotions, informational sessions with customers, or improving the catalog of products. The GM should continue what is working for the furniture category and focus should be spent on hiring or training sales talent in the West region to boost sales.
 
 ## Key Findings
 
