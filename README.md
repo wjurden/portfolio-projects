@@ -1,5 +1,4 @@
 # Wes Jurden Portfolio 
- *Last Update: 8/15/2025*
 
 ## Welcome to my Insights Portfolio!
 
